@@ -29,9 +29,6 @@
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
-    <InterpreterReference Include="Global|PythonCore|3.11" />
-  </ItemGroup>
-  <ItemGroup>
     <Interpreter Include="rechl\">
       <Id>rechl</Id>
       <Version>3.11</Version>
