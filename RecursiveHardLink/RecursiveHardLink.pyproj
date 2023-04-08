@@ -12,6 +12,7 @@
     <Name>RecursiveHardLink</Name>
     <RootNamespace>RecursiveHardLink</RootNamespace>
     <InterpreterId>MSBuild|rechl|$(MSBuildProjectFullPath)</InterpreterId>
+    <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -25,18 +26,21 @@
     <Compile Include="recursive_hardlink.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="requirements.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.11" />
+  </ItemGroup>
+  <ItemGroup>
     <Interpreter Include="rechl\">
       <Id>rechl</Id>
-      <Version>3.10</Version>
-      <Description>rechl (Python 3.10 (64-bit))</Description>
+      <Version>3.11</Version>
+      <Description>rechl (Python 3.11 (64-bit))</Description>
       <InterpreterPath>Scripts\python.exe</InterpreterPath>
       <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
       <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
       <Architecture>X64</Architecture>
     </Interpreter>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="requirements.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
