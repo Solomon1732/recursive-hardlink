@@ -33,6 +33,6 @@ repos:
         args: [--no-strict-optional, --ignore-missing-imports]
         additional_dependencies: [tokenize-rt==3.2.0]
 -   repo: https://github.com/PyCQA/pylint
-    rev: v3.0.0a7
+    rev: v3.0.0
     hooks:
     -   id: pylint
