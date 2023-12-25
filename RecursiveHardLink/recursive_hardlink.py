@@ -5,6 +5,7 @@ Run the main function.
 import argparse
 import os
 import shutil
+import sys
 from pathlib import Path
 
 
@@ -41,7 +42,7 @@ def main() -> None:
     args = parser.parse_args()
     follow_symlinks: bool = args.follow_symlinks
     source: Path = args.source.resolve(strict=True)
-    dest: Path = resolve_parents(args.dest)
+    dest: Path = resolve_parents(directory=args.dest)
 
     shutil.copytree(
         src=source, dst=dest, symlinks=follow_symlinks, copy_function=os.link
@@ -49,4 +50,9 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        sys.exit("Interrupted by user. Exiting...")
+    except FileExistsError as e:
+        sys.exit(f"Error: {e}.")
